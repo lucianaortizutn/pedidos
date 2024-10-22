@@ -43,5 +43,9 @@ const handleSaveOrModifyElements  = () => {
 
     console.log({nombre, imagen, precio, categoria});
 
+    let product = {id: new Date().toISOString(), nombre, imagen, precio, categoria}
+    
+    setProductLocalStorage(product)
+
     closeModal()
 }
