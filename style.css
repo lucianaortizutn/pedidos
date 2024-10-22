@@ -1,0 +1,212 @@
+/* ------------ VARIABLES ------------ */
+:root {
+  --soft-green: #abc27088;
+  --green: #ABC270;
+  --yellow: #F5D547;
+  --yellow-hover: #f0c91e;
+  --orange: #FDA769;
+  --orange-hover: #fd9850;
+  --black: #473C33;
+}
+
+/* ------------ GENERALES ------------ */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+/* ------------ HEADER ------------ */
+.container_principalHeader {
+  width: 100vw;
+  height: 8vh;
+  background-color: var(--green);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container_contentHeader {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem;
+}
+
+.headerSearch {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1vh;
+}
+
+.inputHeader {
+  height: 2vh;
+  width: 20vw;
+  border-radius: 0.4rem;
+  border: none;
+  padding: 0.4rem;
+  outline: none;
+  font-size: 1.7vh;
+}
+
+.header_buttonSearch {
+  border: 1px solid var(--orange);
+  background-color: var(--orange);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  width: 8vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.header_addButton {
+  width: 13vw;
+  padding: 0.4rem;
+  border: 1px solid var(--yellow);
+  border-radius: 0.4rem;
+  background-color: var(--yellow);
+  color: var(--black);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.header_buttonSearch:hover {
+  background-color: var(--orange-hover);
+  border-color: var(--orange-hover);
+}
+
+.header_addButton:hover {
+  background-color: var(--yellow-hover);
+  border-color: var(--yellow-hover);
+}
+
+/* ------------ MAIN ------------ */
+.containter_view {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+}
+
+.listAside {
+  height: 92vh;
+  background-color: var(--soft-green)
+}
+
+.store {
+  height: 92vh;
+}
+
+/* ------------ LIST ASIDE ------------ */
+.listAside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listAside h2 {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listAside ul {
+  margin-top: 3vh;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.listAside ul li {
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.liActive {
+  background-color: var(--green);
+  color: white;
+}
+
+/* ------------ POP UP ------------ */
+.popUpContainer_principal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+.popUpContainer {
+  width: 50vw;
+  height: 50vh;
+  background-color: white;
+  border-radius: 0.4rem;
+  border: 1px solid var(--soft-green);
+  box-shadow: 0px 0px 10px var(--black);
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container_titlePopUp {
+  width: 100%;
+  text-align: center;
+}
+
+.container_inputPopUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.container_inputPopUp input, .container_inputPopUp select {
+  width: 80%;
+  border: 1px solid var(--green);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  outline-color: var(--green);
+}
+
+.container_ButtonsPopUp {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonPopUp {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.cancel {
+  background-color: var(--yellow);
+}
+
+.save {
+  background-color: var(--green);
+}
+
+.delete {
+  background-color: var(--orange);
+}
