@@ -1,5 +1,6 @@
 import { renderCategories } from "./src/services/categories";
 import { handleGetProductsToStore } from "./src/views/store";
+import { setProductLocalStorage } from "./src/persistence/localStorage";
 import './style.css';
 
 renderCategories()
@@ -48,6 +49,6 @@ const handleSaveOrModifyElements  = () => {
     let product = {id: new Date().toISOString(), nombre, imagen, precio, categoria}
     
     setProductLocalStorage(product)
-
+    handleGetProductsToStore()
     closeModal()
 }

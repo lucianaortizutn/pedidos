@@ -1,4 +1,4 @@
-import { getProductLocalStorage } from "../persistence/localstorage"
+import { getProductLocalStorage } from "../persistence/localStorage"
 
 /* ------------ STORE ------------ */
 export const handleGetProductsToStore = ()  => {
@@ -15,24 +15,23 @@ export const handleRenderList = (products)  => {
         if  (products.length > 0) {
             const productosHTML = products.map((producto, index) => {
               return `
-                <div id="product-${producto.categoria}-${index}">
-                    <div>
-                        <img src=${producto.imagen}/>
+                <div class="containerTargetItem" id="product-${producto.categoria}-${index}">
+                    <div class="containerImg">
+                        <img src='${producto.imagen}'/>
                     </div>
                     <div>
-                        <h2>${producto.nombre}</h2>
+                        <h3>${producto.nombre}</h3>
                     </div>
-                    <div>
-                        <p><b>$ ${producto.precio}</b></p>
-                        <p><b>${producto.categoria}</b></p>
+                    <div class="targetProps">
+                        <p><b>Precio:</b> $ ${producto.precio}</p>
                     </div>
                 </div>
               `  
             })
             return `
-                <section>
-                    <h3>${title}</h3>
-                    <div>
+                <section class="sectionStore">
+                    <h2>${title}</h2>
+                    <div class="container_Product">
                         ${productosHTML.join("")}
                     </div>
                 </section>
