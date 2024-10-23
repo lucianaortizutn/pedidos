@@ -1,5 +1,36 @@
-// render de la vista categorias
+import { categoriaActiva } from "../../main";
+import { getProductLocalStorage } from "../persistence/localStorage"
+import { handleRenderList } from "../views/store";
 
+// filtro por categoria
+const handleFilterProductsByCategory  = (category) => {
+    const products = getProductLocalStorage()
+    switch (category) {
+        case categoriaActiva:
+        case "Todo":
+            handleRenderList(products)
+            break
+        case "Hamburguesas":
+        case "Papas":
+        case "Gaseosas":
+            const result  = products.filter(product => product.categoria === category)
+            handleRenderList(result)
+            break
+        case "mayorPrecio":
+            const resultMayor =  products.sort((a, b) => b.precio - a.precio)
+            handleRenderList(resultMayor)
+            break
+        case "menorPrecio":
+            const resultMenor =  products.sort((a, b) => a.precio - b.precio)
+            handleRenderList(resultMenor)
+            break
+        default:
+            break
+    }
+}
+
+
+// render de la vista categorias
 export const renderCategories = ()  => {
     const ulList = document.getElementById("listFilter")
     ulList.innerHTML = `
@@ -20,6 +51,7 @@ export const renderCategories = ()  => {
     })
 
     const handleClick = (elemento)=> {
+        handleFilterProductsByCategory(elemento.id)
         liElements.forEach(el => {
             if (el.classList.contains('liActive')) el.classList.remove('liActive')
             else 
