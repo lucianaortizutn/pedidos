@@ -97,17 +97,15 @@ button {
   grid-template-columns: 0.2fr 0.8fr;
 }
 
-.listAside {
-  height: 92vh;
-  background-color: var(--soft-green)
-}
-
+/* ------------ STORE ------------ */
 .store {
   height: 92vh;
 }
 
 /* ------------ LIST ASIDE ------------ */
 .listAside {
+  height: 92vh;
+  background-color: var(--soft-green);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +133,7 @@ button {
   border-radius: 0.4rem;
 }
 
-.liActive {
+.liActive, .listAside ul li:hover {
   background-color: var(--green);
   color: white;
 }

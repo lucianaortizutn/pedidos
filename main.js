@@ -1,7 +1,9 @@
 import { renderCategories } from "./src/services/categories";
+import { handleGetProductsToStore } from "./src/views/store";
 import './style.css';
 
 renderCategories()
+handleGetProductsToStore()
 
 /* ------------ PRODUCT ------------ */
 const addButton = document.getElementById('addButton')
