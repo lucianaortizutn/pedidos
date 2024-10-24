@@ -1,10 +1,15 @@
 import { productoActivo, setProductoActivo } from "../../main"
-import { handleSaveOrModifyElements } from "../services/products"
+import { handleDeleteProduct, handleSaveOrModifyElements } from "../services/products"
 
 /* ------------ POP UP ------------ */
 const cancelButton = document.getElementById('cancelButton')
 cancelButton.addEventListener('click',  () => {
     closeModal()
+})
+
+const deleteButton = document.getElementById('deleteButton')
+deleteButton.addEventListener('click',  () => {
+    handleDeleteProduct()
 })
 
 // FUNCIONES ABRIR Y CERRAR MODAL
@@ -21,6 +26,9 @@ export const openModal = () => {
         imagen.value = productoActivo.imagen
         precio.value = productoActivo.precio
         categoria.value = productoActivo.categoria
+        deleteButton.style.display = 'block'
+    } else {
+        deleteButton.style.display = 'none'
     }
 }
 

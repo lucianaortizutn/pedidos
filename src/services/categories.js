@@ -12,7 +12,7 @@ const handleFilterProductsByCategory  = (category) => {
             break
         case "Hamburguesas":
         case "Papas":
-        case "Gaseosas":
+        case "Bebidas":
             const result  = products.filter(product => product.categoria === category)
             handleRenderList(result)
             break
@@ -37,7 +37,7 @@ export const renderCategories = ()  => {
         <li id="Todo">Todos los productos</li>
         <li id="Hamburguesas">Hamburguesas</li>
         <li id="Papas">Papas</li>
-        <li id="Gaseosas">Gaseosas</li>
+        <li id="Bebidas">Bebidas</li>
         <li id="mayorPrecio">Mayor precio</li>
         <li id="menorPrecio">Menor precio</li>
     `

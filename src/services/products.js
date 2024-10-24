@@ -1,7 +1,8 @@
+import Swal from "sweetalert2";
 import { productoActivo } from "../../main";
-import { setProductLocalStorage } from "../persistence/localStorage";
+import { getProductLocalStorage, setProductLocalStorage } from "../persistence/localStorage";
 import { closeModal } from "../views/modal"
-import { handleGetProductsToStore } from "../views/store";
+import { handleGetProductsToStore, handleRenderList } from "../views/store";
 
 const saveButton = document.getElementById('saveButton')
 saveButton.addEventListener('click',  () => {
@@ -22,7 +23,43 @@ export const handleSaveOrModifyElements  = () => {
         product = {id: new Date().toISOString(), nombre, imagen, precio, categoria}
     }
 
+    Swal.fire(
+        `Producto "${nombre}" guardado correctamente.`, 
+        `Podrá visualizar el producto en la sección ${categoria}.`
+        , 'success'
+    )
+
+
     setProductLocalStorage(product)
     handleGetProductsToStore()
     closeModal()
+}
+
+export const handleDeleteProduct = () => {
+    Swal.fire({
+        title: `¿Desea eliminar "${productoActivo.nombre}?"`,
+        text: "No será posible revertir esta acción.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#ABC270",
+        cancelButtonColor: "#F5D547",
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+            
+            const products = getProductLocalStorage()
+            const result = products.filter(product => product.id !== productoActivo.id)
+            
+            localStorage.setItem('products', JSON.stringify(result))
+            handleRenderList(result)
+            closeModal()
+            Swal.fire({
+                title: "Eliminado",
+                text: "El producto se ha eliminado correctamente.",
+                icon: "success"
+            });
+        }
+      });
 }

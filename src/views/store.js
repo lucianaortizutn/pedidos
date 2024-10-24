@@ -11,7 +11,7 @@ export const handleGetProductsToStore = ()  => {
 export const handleRenderList = (products)  => {
     const burguers = products.filter(p => p.categoria  === 'Hamburguesas')
     const fries = products.filter(p => p.categoria  === 'Papas')
-    const sode = products.filter(p => p.categoria  === 'Gaseosas')
+    const sode = products.filter(p => p.categoria  === 'Bebidas')
 
     const renderProductGroup = (products, title) => {
         if  (products.length > 0) {
@@ -50,7 +50,7 @@ export const handleRenderList = (products)  => {
     appContainer.innerHTML = `
         ${renderProductGroup(burguers, 'Hamburguesas')}
         ${renderProductGroup(fries, 'Papas')}
-        ${renderProductGroup(sode, 'Gaseosas')}
+        ${renderProductGroup(sode, 'Bebidas')}
     `
 
     const addEvents  = (products) => {
